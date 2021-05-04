@@ -7,7 +7,7 @@
 
 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link" href="/">Home</a>
     </li>
     <li class="nav-item">
@@ -18,7 +18,19 @@
     </li>
     </ul>
     <ul class="navbar-nav navbar-right">
-        <li><a href="/register">Register</a></li>
+        {% if session.logged_in %}
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+            <a class="nav-link" href="/dashboard">dashboard</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+        </li>
+        {% endif %}
     </ul>
 </div>
 </nav>
